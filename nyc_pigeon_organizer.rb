@@ -2,9 +2,16 @@ def nyc_pigeon_organizer(data)
   # write your code here!
   new_hash = {}
   data.each { |key, value|
-    value.each {|key2, intern|
-      intern.collect {|val|
-        new_hash[val][key] << key2.to_s
+    value.each {|vals, names|
+      intern.collect {|name|
+        if !new_hash[name]
+          new_hash[name] = {}
+        end
+
+        if !new_hash[name][key]
+          new_hash[name][key] = []
+        end
+        new_hash[name][key] << key2.to_s
       }
     }
   }
