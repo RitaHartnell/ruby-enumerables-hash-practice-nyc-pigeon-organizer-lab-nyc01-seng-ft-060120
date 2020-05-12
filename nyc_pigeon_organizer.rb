@@ -3,7 +3,7 @@ def nyc_pigeon_organizer(data)
   new_hash = {}
   data.each { |key, value|
     value.each {|vals, names|
-      intern.collect {|name|
+      names.collect {|name|
         if !new_hash[name]
           new_hash[name] = {}
         end
@@ -11,6 +11,7 @@ def nyc_pigeon_organizer(data)
         if !new_hash[name][key]
           new_hash[name][key] = []
         end
+
         new_hash[name][key] << key2.to_s
       }
     }
